@@ -7,14 +7,16 @@ const ScoreForm = (props) => {
     const [activePlayer, setActivePlayer] = useState('');
     
     const alterScore = e => {
+        const placeHolder = e.target.placeholder
         const score = parseFloat(e.target.value);
         const id = e.target.id;
         const index = id === "dartOne" ? 0 : id === "dartTwo" ? 1 : 2
         setScoreArr(prev=>{
             let newArr = prev;
-            newArr[index] = score;
+            newArr[index] = score >= 0 ? score : 0;
             return [...newArr];
         })
+        e.target.value = score >= 0 ? score : placeHolder; 
         // console.log(scoreArr);
     }
 
