@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Dashboard from './components/Dashboard';
 import PlayersContextProvider from './contexts/playerContext';
 import { LayoutContext } from './contexts/layoutContext';
+import AddPlayerForm from './components/AddPlayerForm';
 
 function App() {
   const {addPlayer} = useContext(LayoutContext)
@@ -12,7 +13,7 @@ function App() {
 
         <Navbar />
         <PlayersContextProvider>
-          {addPlayer ? "player form" : <Dashboard/>}
+          {addPlayer ? <AddPlayerForm/> : <Dashboard/>}
         </PlayersContextProvider>  
     </div>
   );
