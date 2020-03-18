@@ -2,12 +2,6 @@ import React, { useEffect } from 'react'
 
 const PlayerCard = (props) => {
     const {name, startingScore, scoreArr, amountLeftArr} = props.player;
-    console.log(props)
-    // useEffect(()=>{
-
-        
-
-    // }, [scoreArray])
 
     return (
         <div className="Card">
