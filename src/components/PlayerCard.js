@@ -1,12 +1,27 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const PlayerCard = (props) => {
-    const {firstname, lastname, currentScore} = props.player;
+    const {name, startingScore, scoreArr, amountLeftArr} = props.player;
+    console.log(props)
+    // useEffect(()=>{
+
+        
+
+    // }, [scoreArray])
+
     return (
         <div className="Card">
-            <h1>{firstname} {lastname}</h1>
+            <h2>{name}</h2>
+            <h3>{startingScore}</h3>
             <div>
-                <h1>{currentScore}</h1>
+                <ul id="score-left">
+                    {amountLeftArr.length > 0 ? amountLeftArr.map( score => <li>{score}</li>) : null}
+                </ul>
+            </div>
+            <div>
+                <ul id="score-turn">
+                    { scoreArr.length > 0 ? scoreArr.map( score => <li>{score}</li>) : null }
+                </ul>
             </div>
         </div>
     )

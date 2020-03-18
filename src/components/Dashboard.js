@@ -1,43 +1,31 @@
-import React, {useState} from 'react';
+import React, { useContext, useEffect } from 'react';
 import PlayerCard from './PlayerCard';
 import ScoreForm from './ScoreForm';
+import {PlayersContext} from '../contexts/playerContext';
 
-const Dashboard = () => {
-    const [ players, setPlayers ] = useState([
-        {   
-            firstname: "Daniel", 
-            lastname: "van Sleen", 
-            id: 0, 
-            startingScore: 501,
-            currentScore: 501,
-            scoreArray: []
-        },
-        {
-            firstname: "Tim", 
-            lastname: "Muller", 
-            id: 1, 
-            currentScore: 501,
-            startingScore: 501,
-            scoreArray: []
-        },
-        {
-            firstname: "Brian", 
-            lastname: "Tuohy", 
-            id: 2, 
-            startingScore: 501,
-            currentScore: 501,
-            scoreArray: []
-        },
-    ])
 
+const Dashboard = props => {
+
+    console.log(useContext(PlayersContext));
+    const { players, activePlayerIndex, setActivePlayerIndex } = useContext(PlayersContext);
     let playerList = players.map( player => {
         return <PlayerCard className="PlayerCard" key={player.id} player={player} />  
     })
 
+        
+
     return (
         <div className="PlayerCard-container">
-            {playerList}
-            <ScoreForm players={players}/>
+                            {/* <button 
+                    onClick={()=>{
+                        (players.length-1 === activePlayerIndex) ? setActivePlayerIndex(0) : setActivePlayerIndex(prev=>prev+1);
+                                
+                    }}
+                    value="nextPlayer"
+                /> */}
+                {playerList}
+                <ScoreForm />
+
         </div>
     )
 }
