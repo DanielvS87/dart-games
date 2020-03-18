@@ -1,26 +1,22 @@
-import React, { useEffect, useContext } from 'react'
-import { PlayersContext } from '../contexts/playerContext'
+import React, { useContext } from 'react'
 import { ScoreContext } from '../contexts/scoreContext'
 
-const ScoreForm = (props) => {
-     const {players} = useContext(PlayersContext)
-     const {scoreArr, setScoreArr, totalScore, setTotalScore} = useContext(ScoreContext)
-
+const ScoreForm = () => {
+    const { score, dispatch } = useContext(ScoreContext)
+    const { dartOne, dartTwo, dartThree, totalValue } = score;
 
     const alterScore = e => {
-        const inputValue = e.target.value
-        let index = e.target.id
-        index = index === "dartOne" ? 0 : index==="dartTwo" ? 1 : 2;
-        setScoreArr( prev => {
-            prev[index] = parseFloat(inputValue)
-            console.log(prev);
-            return prev
+        const a = e.target.value
+        const value = ( a === "" || a === NaN ) ? 0 : parseFloat(a);
+        const dartNumber = e.target.id;
+        dispatch({
+            type: 'UPDATE_DART',
+            payload: {
+                value, 
+                dartNumber 
+            }
         })
     }
-
-    useEffect(()=>{
-        console.log("hello")
-    },[scoreArr])
 
     return (
         <div>
@@ -32,6 +28,7 @@ const ScoreForm = (props) => {
                     <label htmlFor="score1">Dart One: </label>
                     <br/>
                     <input 
+                        min="0" max="60"
                         id="dartOne" 
                         name="score1" 
                         placeholder="Enter Score Dart One" 
@@ -42,6 +39,7 @@ const ScoreForm = (props) => {
                 <div className="form-section">
                     <label htmlFor="score2">Dart Two: </label><br/>
                     <input 
+                        min="0" max="60"
                         id="dartTwo"
                         name="score2" 
                         placeholder="Enter Score Dart Two" 
@@ -52,6 +50,7 @@ const ScoreForm = (props) => {
                 <div className="form-section">
                     <label htmlFor="score3">Dart Three: </label><br/>
                     <input 
+                        min="0" max="60"
                         id="dartThree" 
                         name="score3" 
                         placeholder="Enter Score Dart Three" 
@@ -63,7 +62,8 @@ const ScoreForm = (props) => {
                     <input type="submit" value="Enter Score"/>
                 </div>
             </form>
-            {scoreArr}
+            {dartOne} {dartTwo} {dartThree}<br/>
+            {totalValue}
         </div>
     )
 }

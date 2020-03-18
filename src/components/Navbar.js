@@ -6,17 +6,20 @@ const Navbar = () => {
     
     const { addPlayer, dispatch } = useContext(LayoutContext);
 
-    console.log( addPlayer);
-
     return (
         <div>
             <p onClick ={()=> {
-                console.log(addPlayer);
                 dispatch({
-                    type: 'TOGGLE_ADD_PLAYER_FORM',
-                    addPlayer
-                })
-            }} >Add Player</p>
+                type: 'PLAYER_FORM_TRUE',
+                addPlayer
+                })}} 
+            >Add Player</p>
+            <p onClick ={()=> {
+                dispatch({
+                type: 'PLAYER_FORM_FALSE',
+                addPlayer
+                })}} 
+            >HOME</p>
         </div>
     )
 }

@@ -4,12 +4,10 @@ import { layoutReducer } from '../reducers/layoutReducer';
 export const LayoutContext = createContext();
 
 const LayoutContextProvider = props => {
-    const [ addPlayer, dispatch ] = useReducer(layoutReducer,false)
+    const [ addPlayer, dispatch ] = useReducer( layoutReducer, false )
 
     return(
-        <LayoutContext.Provider value={{
-            addPlayer, dispatch
-        }}>
+        <LayoutContext.Provider value={{ addPlayer, dispatch }}>
             {props.children}
         </LayoutContext.Provider>
     )

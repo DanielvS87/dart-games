@@ -1,8 +1,10 @@
 
 export const layoutReducer = ( state, action ) => {
     switch(action.type){
-        case 'TOGGLE_ADD_PLAYER_FORM':
-            return !action.addPlayer;
+        case 'PLAYER_FORM_TRUE':
+            return true;
+        case 'PLAYER_FORM_FALSE':
+            return false;
         default: return state
     }
 }

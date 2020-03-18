@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 const PlayerCard = (props) => {
     const {name, startingScore, scoreArr, amountLeftArr} = props.player;

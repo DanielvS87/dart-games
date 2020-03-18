@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, } from 'react';
 import PlayerCard from './PlayerCard';
 import ScoreForm from './ScoreForm';
 import {PlayersContext} from '../contexts/playerContext';

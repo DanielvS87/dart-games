@@ -1,16 +1,17 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useReducer } from 'react';
+import { scoreReducer } from '../reducers/scoreReducer'
 
 export const ScoreContext = createContext();
 
 const ScoreContextProvider = props => {
-    const [ scoreArr, setScoreArr] = useState([0,0,0])
-    const [ totalScore, setTotalScore] = useState(0)
-
+    const [ score, dispatch ] = useReducer(scoreReducer,{
+        dartOne: 0,
+        dartTwo: 0,
+        dartThree: 0,
+        totalValue: 0
+    })
     return(
-        <ScoreContext.Provider value={{
-            scoreArr, setScoreArr,
-            totalScore, setTotalScore
-        }}>
+        <ScoreContext.Provider value={{ score, dispatch }}>
             {props.children}
         </ScoreContext.Provider>
     )
