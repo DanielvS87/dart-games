@@ -3,12 +3,13 @@ import { ScoreContext } from '../contexts/scoreContext'
 
 const ScoreForm = () => {
     const { score, dispatch } = useContext(ScoreContext)
-    const { dartOne, dartTwo, dartThree, totalValue } = score;
+    const { totalValue } = score;
 
     const alterScore = e => {
         const a = e.target.value
         const value = ( a === "" || a === NaN ) ? 0 : parseFloat(a);
         const dartNumber = e.target.id;
+        console.log(dartNumber, value);
         dispatch({
             type: 'UPDATE_DART',
             payload: {
@@ -19,51 +20,37 @@ const ScoreForm = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={(e)=>{
+        <div className="ScoreForm col s6 offset-6">
+            <form id="add-score" className="score-form-container col s8 offset-s2" onSubmit={(e)=>{
                 e.preventDefault()
             }}>
-                <h3>Score Round</h3>
-                <div className="form-section">
-                    <label htmlFor="score1">Dart One: </label>
-                    <br/>
-                    <input 
-                        min="0" max="60"
-                        id="dartOne" 
-                        name="score1" 
-                        placeholder="Enter Score Dart One" 
-                        type="number"
-                        onChange={alterScore}
-                    />
+                <h2>Enter Score</h2>
+                <div className="row cont">
+                    <div className="col s8 offset-s2 input-field">
+                        <label htmlFor="dartOne">Dart One :</label>
+                        <input id="dartOne" type="number" onChange={alterScore}/>
+                    </div>
                 </div>
-                <div className="form-section">
-                    <label htmlFor="score2">Dart Two: </label><br/>
-                    <input 
-                        min="0" max="60"
-                        id="dartTwo"
-                        name="score2" 
-                        placeholder="Enter Score Dart Two" 
-                        type="number"
-                        onChange={alterScore}
-                    />
+                <div className="row cont">
+                    <div className="col s8 offset-s2 input-field">
+                        <label htmlFor="dartTwo">Dart Two :</label>
+                        <input id="dartTwo" type="number" onChange={alterScore}/>
+                    </div>
                 </div>
-                <div className="form-section">
-                    <label htmlFor="score3">Dart Three: </label><br/>
-                    <input 
-                        min="0" max="60"
-                        id="dartThree" 
-                        name="score3" 
-                        placeholder="Enter Score Dart Three" 
-                        type="number" 
-                        onChange={alterScore}
-                    />
+                <div className="row cont">
+                    <div className="col s8 offset-s2 input-field">
+                        <label htmlFor="dartThree">Dart Three :</label>
+                        <input id="dartThree" type="number" onChange={alterScore}/>
+                    </div>
                 </div>
                 <div>
-                    <input type="submit" value="Enter Score"/>
+                    <input className="btn" type="submit" value="Enter Score"/>
                 </div>
+                <br />
+                <p>
+                    Total Score : {totalValue}
+                </p>
             </form>
-            {dartOne} {dartTwo} {dartThree}<br/>
-            {totalValue}
         </div>
     )
 }

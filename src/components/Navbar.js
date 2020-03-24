@@ -7,7 +7,7 @@ const Navbar = () => {
     const { addPlayer, dispatch } = useContext(LayoutContext);
 
     return (
-        <div>
+        <div className="Navbar">
             <p onClick ={()=> {
                 dispatch({
                 type: 'PLAYER_FORM_TRUE',

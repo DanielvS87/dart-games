@@ -1,5 +1,6 @@
 
 export const scoreReducer = ( state, action ) => {
+    console.log(action)
     switch(action.type){
         case 'UPDATE_DART':
             const { dartNumber, value } = action.payload

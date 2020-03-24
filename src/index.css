@@ -17,29 +17,115 @@ body {
   
 }
 
+#root{
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
 .App {
+  height:100%;
   background: #444;
 }
 
-.Card {
+.Navbar{
+  position: absolute;
+  background: beige
+}
+
+.Dashboard, .AddPlayerForm{
+  height:100%;
+}
+
+.Dashboard{
+  background: blueviolet;
+}
+
+.AddPlayerForm{
+  background: lightblue;
+}
+
+.add-form-container, .score-form-container{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+
+.PlayerList{
+  display: flex;
+  height: 100%;
+  background: lightcoral;
+}
+.ScoreForm{
+  height: 100%;
+  background: rgb(223, 214, 98);
+}
+
+.ActivePlayer{
+  height: 100%;
+  width: 100%;
+  background: lightgreen;
+}
+
+.OtherPlayers{
+  height: 100%;
+  width: 100%;
+  background: lightskyblue;
+}
+
+/* .Card {
   border-radius: var(--border-radius);
   padding: 50px;
-  margin: 20px;
   min-width: 300px;
   background-color: rgb(16, 87, 16);
   color: rgb(137, 235, 137);
+}
+
+.Dashboard {
+  height: 100vh;
 }
 
 .add-player-form{
   height: 100vh;
 }
 
+.cont{
+  margin-bottom: 20px;
+}
+.add-player-form.row, .PlayerCard-container, .add-score-form.row{
+  margin-bottom: 0;
+}
+
+.add-score-form {
+  position: relative;
+}
+
 .PlayerCard-container{
   display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: blue;
+}
+
+#add-player {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#add-score {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.PlayerCard-container > div {
   width: 50%;
-  height: 100vh;
-  /* overflow: hidden; */
-  box-shadow: 0px 0px 2px 2px rgba(153,153,153,0.25);
+  background-color: blueviolet;
 }
 
 .PlayerCard {
@@ -52,5 +138,26 @@ body {
 
 .form-section > input {
   width: 160px;
-  text-align: center;
 }
+
+#add-player, #add-score{
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+#add-player + label, #add-score+ label{
+  color: black;
+}
+
+.Navbar {
+  position: absolute
+}
+
+.row.col {
+  padding: 0;
+}
+
+.PlayerList{
+  background: coral
+} */

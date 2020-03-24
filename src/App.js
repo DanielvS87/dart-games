@@ -9,7 +9,7 @@ import AddPlayerForm from './components/AddPlayerForm';
 function App() {
   const {addPlayer} = useContext(LayoutContext)
   return (
-    <div className="App Dashboard">
+    <div className="App Dashboard row">
 
         <Navbar />
         <PlayersContextProvider>

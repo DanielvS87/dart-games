@@ -4,7 +4,7 @@ const PlayerCard = (props) => {
     const {name, startingScore, scoreArr, amountLeftArr} = props.player;
 
     return (
-        <div className="Card">
+        <div className="col s2 Card">
             <h2>{name}</h2>
             <h3>{startingScore}</h3>
             <div>
